@@ -60,5 +60,5 @@ git add -A
 git commit -m "$COMMIT_MESSAGE"
 
 git remote rm $USER
-git remote add $USER git@github.com:Linylyy/RuHuo.git
+git remote add $USER $REMOTE_PATH
 git push $USER HEAD:$BRANCH_NAME
