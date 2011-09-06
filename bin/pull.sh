@@ -26,22 +26,18 @@ function ColorText()
 function usage()
 {
   ColorText 1 8 2 "Usage:"
-  ColorText 1 8 2 "  $0 <branch_name> <commit_message> "
-  ColorText 1 8 2 "  eg: $0 master 'new update message' "
+  ColorText 1 8 2 "  $0 <branch_name> "
+  ColorText 1 8 2 "  eg: $0 master "
 }
 
-if [ "$#" != "2" ]; then
+if [ "$#" != "1" ]; then
   usage
   exit 255
 fi
 
-export REMOTE_PATH=git@github.com:Linylyy/RuHuo.git
-export COMMIT_MESSAGE=$2
+#export REMOTE_PATH=git@github.com:Linylyy/RuHuo.git
 export BRANCH_NAME=$1
 
-
-ColorText 2 8 2 "  REMOTE_PATH:          $REMOTE_PATH"
-ColorText 2 8 2 "  COMMIT_MESSAGE:       $COMMIT_MESSAGE"
 ColorText 2 8 2 "  BRANCH_NAME:          $BRANCH_NAME"
 
 while [ 'test' = 'test' ]
@@ -54,11 +50,7 @@ do
   esac
 done
 
+
 ################################################
-
-git add -A
-git commit -m "$COMMIT_MESSAGE"
-
-git remote rm $USER
-git remote add $USER git@github.com:Linylyy/RuHuo.git
-git push $USER HEAD:$BRANCH_NAME
+git checkout $BRANCH_NAME
+git pull
